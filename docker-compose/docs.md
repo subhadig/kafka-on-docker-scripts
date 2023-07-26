@@ -10,3 +10,4 @@ installed
 ## Usage
 - To start the cluster: `docker-compose up`
 - Access Kafka drop at `http:localhost:19000`
+- To stop the cluster: `docker-compose down`

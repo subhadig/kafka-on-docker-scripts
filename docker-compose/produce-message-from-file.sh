@@ -1,7 +1,12 @@
 #!/usr/bin/env sh
 
-docker run -it --rm \
+message=`cat "$2"`
+
+docker run --interactive --rm \
     --network docker-compose_default \
     confluentinc/cp-kafkacat \
     kafkacat -b kafka:19092 \
-    -L -J | python3 -m json.tool
+    -t "$1" \
+    -P <<EOF
+$message
+EOF
